@@ -1,7 +1,14 @@
+using myfinance_web_dotnet.Mappers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+//Add AutoMapper Injection
+builder.Services.AddAutoMapper(typeof(TransactionMap));
+builder.Services.AddAutoMapper(typeof(AccountPlanMap));
 
 var app = builder.Build();
 

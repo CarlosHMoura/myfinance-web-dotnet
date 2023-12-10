@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace myfinance_web_dotnet.Enumerations
+namespace myfinance_web_dotnet.Enumerations;
+
+public enum TypeAccountEnum
 {
-    public enum TypeAccountEnum
-    {
-        [Display(Name = "Despesa")]
-        Expenses = 1,
-        [Display(Name = "Receita")]
-        Revenues = 2
-    }
+    [Display(Name = "Despesa")]
+    Expenses = 1,
+    [Display(Name = "Receita")]
+    Revenues = 2
 }

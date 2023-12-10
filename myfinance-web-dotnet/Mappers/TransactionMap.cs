@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using myfinance_web_dotnet.Models;
 
-namespace myfinance_web_dotnet.Mappers
+namespace myfinance_web_dotnet.Mappers;
+
+public class TransactionMap : Profile
 {
-    public class TransactionMap : Profile
+    public TransactionMap()
     {
-        public TransactionMap()
-        {
-            CreateMap<TransactionMap, TransactionViewModel>().ReverseMap();
-        }
+        CreateMap<TransactionMap, TransactionViewModel>().ReverseMap();
     }
 }

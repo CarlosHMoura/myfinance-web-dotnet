@@ -2,13 +2,12 @@
 using myfinance_web_dotnet.Domain;
 using myfinance_web_dotnet.Models;
 
-namespace myfinance_web_dotnet.Mappers
+namespace myfinance_web_dotnet.Mappers;
+
+public class AccountPlanMap: Profile
 {
-    public class AccountPlanMap: Profile
+    public AccountPlanMap()
     {
-        public AccountPlanMap()
-        {
-            CreateMap<AccountPlanModel, AccountPlanViewModel>().ReverseMap();
-        }
+        CreateMap<AccountPlanModel, AccountPlanViewModel>().ReverseMap();
     }
 }

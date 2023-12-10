@@ -2,7 +2,7 @@
 
 namespace myfinance_web_dotnet.Models
 {
-    public record TransactionModel
+    public record TransactionViewModel
     {
         public int Id { get; set; }
         public string? History { get; set; }
@@ -11,7 +11,7 @@ namespace myfinance_web_dotnet.Models
         public DateTime Date { get; set; }
         public int AccountPlanId { get; set; }
         public bool? Active { get; set; }
-        public List<AccountPlanModel> AccountsPlan { get; set; } = new List<AccountPlanModel>();
+        public List<AccountPlanViewModel> AccountsPlan { get; set; } = new List<AccountPlanViewModel>();
 
         public List<SelectListItem> TypesAccountPlan
         {

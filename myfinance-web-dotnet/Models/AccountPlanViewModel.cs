@@ -3,7 +3,7 @@ using myfinance_web_dotnet.Enumerations;
 
 namespace myfinance_web_dotnet.Models
 {
-    public record AccountPlanModel
+    public record AccountPlanViewModel
     {
         public int Id { get; set; }
         public string? Description { get; set; }

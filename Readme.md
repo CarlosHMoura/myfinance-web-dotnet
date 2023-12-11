@@ -8,7 +8,7 @@ My Finance Web is a comprehensive financial management platform designed to empo
 
 ## Architecture
 
- ![docs](/MyFinanceWeb-ModelagemArquitetural.png)
+ ![Architecture](/docs/MyFinanceWeb-ModelagemArquitetural.png)
 
 ## Used Packages
 
@@ -66,7 +66,7 @@ My Finance Web is a comprehensive financial management platform designed to empo
    ```
    dotnet restore
    ```
-## How to Run
+## How to Run 
 
 1. Run the Project:
 

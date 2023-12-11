@@ -46,6 +46,12 @@ My Finance Web is a comprehensive financial management platform designed to empo
 - Microsoft SQL Server
   - https://www.microsoft.com/pt-br/sql-server/
 
+## Database Script
+
+To set up the database, execute the SQL script located in the /scripts folder in your database management system. This script will create the necessary tables for the proper functioning of the application.
+
+Remember to adjust the connection settings in the database configuration file (appsettings.json) according to your local environment.
+
 ## Installation
    
 1. Clone the Project Repository:

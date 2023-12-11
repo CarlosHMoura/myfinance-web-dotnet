@@ -1,20 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using myfinance_web_dotnet.Interfaces;
+using myfinance_web_dotnet.Services;
+using System.Runtime.CompilerServices;
 
 namespace myfinance_web_dotnet.Infrastructure;
 
-public class DependencyInjection
+public static class DependencyInjection
 {
-    public static void RegisterServices(IServiceCollection services, IConfiguration configuration)
+    public static void RegisterServices(this WebApplicationBuilder builder)
     {
         //DbContext EFCore Injection
-        services.AddDbContext<MyFinanceDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.AddDbContext<MyFinanceDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("AppDb")));
 
         //AutoMapper Injection
-        services.AddAutoMapper(AssemblyUtil.GetCurrentAssemblies());
+        builder.Services.AddAutoMapper(AssemblyUtil.GetCurrentAssemblies());
 
         //Services Injection
-        services.AddTransient<IPlanoContaService, PlanoContaService>();
-        services.AddTransient<ITransacaoService, TransacaoService>();
+        builder.Services.AddTransient<IAccountPlanService, AccountPlanService>();
+        builder.Services.AddTransient<ITransactionService, TransactionService>();
     }
 }

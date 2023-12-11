@@ -6,7 +6,7 @@ namespace myfinance_web_dotnet.Models;
 public record AccountPlanViewModel
 {
     public int Id { get; set; }
-    public string? Description { get; set; }
+    public string Description { get; set; }
     public TypeAccountEnum Type { get; set; }
     public bool Active { get; set; }
     public List<SelectListItem> AllTypes

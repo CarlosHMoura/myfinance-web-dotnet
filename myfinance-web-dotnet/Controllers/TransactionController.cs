@@ -48,7 +48,7 @@ public class TransactionController : Controller
     [HttpPost]
     [Route("Register")]
     [Route("Register/{id}")]
-    public IActionResult Cadastrar(TransactionViewModel model)
+    public IActionResult Register(TransactionViewModel model)
     {
         _transactionService.Save(_mapper.Map<TransactionModel>(model));
 

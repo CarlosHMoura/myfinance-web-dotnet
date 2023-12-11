@@ -30,6 +30,7 @@ public class AccountPlanService : IAccountPlanService
 
     public IList<AccountPlanModel> ListAccountsPlan()
     {
+        var accountsPlan = _financeDbContext.AccountPlan.Where(p => p.Active == true).ToList();
         return _financeDbContext.AccountPlan.Where(p => p.Active == true).ToList();
     }
 

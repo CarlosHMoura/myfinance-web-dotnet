@@ -9,5 +9,5 @@ public record TransactionModel
     public int AccountPlanId { get; set; }
     public DateTime Date { get; set; }
     public bool Active { get; set; }
-    public AccountPlanModel AccountPlan { get; set; } = new AccountPlanModel();
+    public AccountPlanModel? AccountPlan { get; set; }
 }

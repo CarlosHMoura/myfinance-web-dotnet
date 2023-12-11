@@ -1,37 +1,37 @@
 USE myfinance
 GO
 
-CREATE TABLE [dbo].[PlanoConta](
+CREATE TABLE [dbo].[AccountPlan](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Descricao] [nvarchar](max) NOT NULL,
-	[Tipo] [int] NOT NULL,
-	[Ativo] [bit] NOT NULL,
- CONSTRAINT [PK_PlanoConta] PRIMARY KEY CLUSTERED 
+	[Description] [nvarchar](max) NULL,
+	[Type] [int] NOT NULL,
+	[Active] [bit] NOT NULL,
+ CONSTRAINT [PK_AccountPlan] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
-CREATE TABLE [dbo].[Transacao](
+CREATE TABLE [dbo].[Transaction](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Historico] [nvarchar](max) NULL,
-	[Tipo] [nvarchar](max) NULL,
-	[Valor] [decimal](16, 4) NOT NULL,
-	[PlanoContaId] [int] NOT NULL,
-	[Data] [datetime] NOT NULL,
-	[Ativo] [bit] NOT NULL,
- CONSTRAINT [PK_Transacao] PRIMARY KEY CLUSTERED 
+	[History] [nvarchar](max) NULL,
+	[Type] [nvarchar](max) NULL,
+	[Value] [decimal](16, 4) NOT NULL,
+	[AccountPlanId] [int] NOT NULL,
+	[Date] [datetime] NOT NULL,
+	[Active] [bit] NOT NULL,
+ CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
-ALTER TABLE [dbo].[Transacao]  WITH CHECK ADD  CONSTRAINT [FK_Transacao_PlanoConta_PlanoContaId] FOREIGN KEY([PlanoContaId])
-REFERENCES [dbo].[PlanoConta] ([Id])
+ALTER TABLE [dbo].[Transaction]  WITH CHECK ADD  CONSTRAINT [FK_Transaction_AccountPlan] FOREIGN KEY([AccountPlanId])
+REFERENCES [dbo].[AccountPlan] ([Id])
 ON DELETE CASCADE
 GO
 
-ALTER TABLE [dbo].[Transacao] CHECK CONSTRAINT [FK_Transacao_PlanoConta_PlanoContaId]
+ALTER TABLE [dbo].[Transaction] CHECK CONSTRAINT [FK_Transaction_AccountPlan]
 GO

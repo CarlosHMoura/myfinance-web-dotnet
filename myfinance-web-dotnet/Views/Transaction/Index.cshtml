@@ -1,7 +1,8 @@
-﻿@model List<AccountPlanViewModel>
+﻿@model List<TransactionViewModel>
 @{
-    ViewData["Title"] = "Plano de Contas";
+    ViewData["Title"] = "Transações";
 }
+
 
 <!-- Adicione as referências ao Bootstrap CSS e JS no cabeçalho da página -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -9,38 +10,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<h1>Lista de Planos de Conta</h1>
+<h1>Lista de Transações</h1>
 
-<!-- Botão para cadastrar novo plano -->
-<a href="@Url.Action("Register", "AccountPlan")" class="btn btn-primary mb-3">Novo Plano de Conta</a>
+<!-- Botão para cadastrar nova transacao -->
+<a href="@Url.Action("Register", "Transaction")" class="btn btn-primary mb-3">Nova Transação</a>
 
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Descrição</th>
             <th>Tipo</th>
+            <th>Histórico</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var planoConta in Model)
+        @foreach (var transacao in Model)
         {
             <tr>
-                <td>@planoConta.Id</td>
-                <td>@planoConta.Description</td>
-                <td>@planoConta.Type</td>
+                <td>@transacao.Id</td>
+                <td>@transacao.Type</td>
+                <td>@transacao.History</td>
                 <td>
                     <!-- Botão Editar -->
-                    <a href="@Url.Action("Register", "AccountPlan", new { id = planoConta.Id })" class="btn btn-warning btn-sm">Editar</a>
+                <a href="@Url.Action("Register", "Transaction", new { id = transacao.Id })" class="btn btn-warning btn-sm">Editar</a>
 
                     <!-- Botão Excluir com Popup de Confirmação -->
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal_@planoConta.Id">
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal_@transacao.Id">
                         Excluir
                     </button>
 
                     <!-- Modal de Confirmação de Exclusão -->
-                    <div class="modal fade" id="confirmDeleteModal_@planoConta.Id" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="confirmDeleteModal_@transacao.Id" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -54,7 +55,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <a href="@Url.Action("Delete", "AccountPlan", new { id = planoConta.Id })" class="btn btn-danger">Excluir</a>
+                                <a href="@Url.Action("Delete", "Transaction", new { id = transacao.Id })" class="btn btn-danger">Excluir</a>
                                 </div>
                             </div>
                         </div>
